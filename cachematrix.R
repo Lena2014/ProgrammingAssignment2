@@ -1,6 +1,6 @@
 ## Here is a pair of functions that cache the inverse of a matrix.
 
-## The makeCacheMatrix function creates a special "matrix" object that can
+## This makeCacheMatrix function creates a special "matrix" object that can
 ## cache its inverse.
 
 makeCacheMatrix <- function(x = matrix()) {
@@ -12,7 +12,7 @@ makeCacheMatrix <- function(x = matrix()) {
                 i <<- NULL
         }
         
-        getmatrix <- function() x                        ## "getmatrix" returns the value of the matrix
+        getmatrix <- function() x                        ## "getmatrix" returns the value of the matrix "x"
         
         setinverse <- function(inverse) i <<- inverse    ## "setinverse" calculates the inverse of the matrix
                                                          ## and stores the inverse matrix in the variable "i"
@@ -25,15 +25,15 @@ makeCacheMatrix <- function(x = matrix()) {
              getinverse = getinverse)
 }
 
-## The cacheSolve function computes the inverse of the special "matrix" returned
-## by makeCacheMatrix. If the inverse has already been calculated (and the
-## matrix has not changed), then this cacheSolve function will retrieve the
+## This cacheSolve function computes the inverse of the special "matrix"
+## returned by makeCacheMatrix. If the inverse has already been calculated (and
+## the matrix has not changed), then this cacheSolve function will retrieve the
 ## inverse from the cache. Otherwise, cacheSolve will compute the inverse and
 ## cache it via the setinverse function.
 
 cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
-        i <- x$getinverse()                              ## "i" gets the inverse matrix from the cache
+
+        i <- x$getinverse()                              ## "i" returns a matrix that is the inverse of "x"
         
         if(!is.null(i)) {                                ## First the function checks if the inverse matrix
                 message("getting cached data")           ## is stored in the cache.
